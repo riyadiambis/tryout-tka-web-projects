@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Uploaded content
+uploads/*
+!uploads/.gitkeep
+
+# Backups & Build output
+backups/
+dist/
+public/css/app.css
+
+# Logs & System
+*.log
+.DS_Store
