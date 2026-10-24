@@ -1,7 +1,7 @@
 # PRD MVP: Web Tryout TKA SD & SMP
 
 Versi 0.2 | 25 Oktober 2026 | Pemilik: Rahmat Riyadi
-Nama produk: IDYH (sementara, belum final)
+Nama produk: Yuk Ngeles
 
 ## 1. Ringkasan
 Web latihan dan tryout TKA Matematika. Channel YouTube Riyadi Ofisharu jadi etalase, web jadi kasir. Satu sistem untuk dua jenjang (SD dan SMP). MVP fokus konten SMP. Pintu SD sudah disiapkan di sistem, kontennya menyusul.
