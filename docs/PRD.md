@@ -25,11 +25,11 @@ Video YouTube > halaman materi > (opsional) tonton video materi > kerjakan 5 soa
 F1 Akun: daftar dengan nama panggilan, username, password, centang "orang tua/wali sudah tahu". Tanpa email dan no HP. Lupa password: hubungi admin.
 F2 Beranda: pilih jenjang SD atau SMP. SD bertanda "segera hadir" selama belum ada konten.
 F3 Dashboard: tampilan ala daftar tugas Classroom. Materi, latihan, dan TO tersusun per elemen, dengan status belum/selesai + skor terakhir.
-F4 Halaman materi: judul, deskripsi singkat, video materi, tombol "Mulai Latihan".
+F4 Halaman materi: judul, deskripsi singkat, tombol "Tonton Materi di YouTube", tombol "Mulai Latihan".
 F5 Latihan 5 soal: semua soal di satu halaman, opsi berupa kartu besar, konfirmasi kalau ada soal kosong saat submit, boleh diulang.
-F6 Hasil latihan: skor, per soal badge Benar/Salah + jawaban siswa + kunci + pembahasan, klip Shorts (thumbnail dulu), tombol "Tonton penjelasan lengkap" ke menit konsep video panjang, tombol "Ulangi" dan "Coba TO Gratis".
+F6 Hasil latihan: skor; per soal badge Benar/Salah, jawaban siswa, kunci, dan pembahasan tertulis (selalu ada); tombol "Lihat Pembahasan Video" ke Shorts (muncul kalau tersedia); tombol "Tonton Penjelasan Lengkap" ke menit konsep video panjang (muncul kalau tersedia); tombol "Ulangi" dan "Coba TO Gratis".
 F7 TO 10-15 soal: lobi (jumlah soal, durasi, aturan), satu soal per layar, panel nomor soal, timer, autosave, bisa lanjut setelah refresh, auto-submit saat waktu habis.
-F8 Hasil TO: skor, jumlah benar, lama pengerjaan, pembahasan per soal (video opsional).
+F8 Hasil TO: skor, jumlah benar, lama pengerjaan, pembahasan per soal dengan tombol video yang sama seperti hasil latihan.
 
 ## 6. Fitur admin
 A1 Login admin (role admin).
@@ -61,7 +61,7 @@ Admin: Dashboard, Elemen, Materi, Daftar Soal, Form Soal + Preview, Kelola Latih
 
 ## 10. Kebutuhan non-fungsional
 - UX dan tampilan: lihat .agents/rules/02-ui-buku-tulis.md.
-- Performa: halaman ringan di HP murah, video selalu thumbnail dulu, rumus dirender di server.
+- Performa: halaman ringan di HP murah, tidak ada video yang di-embed, rumus dirender di server.
 - Keamanan: lihat aturan domain bagian Keamanan soal.
 
 ## 11. Hosting

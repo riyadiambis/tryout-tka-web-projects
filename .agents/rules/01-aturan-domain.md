@@ -30,9 +30,9 @@ trigger: always_on
 
 ## Konten
 19. Format konten (soal, opsi, pembahasan): Markdown + LaTeX. Rumus inline $...$, rumus blok $$...$$. Penulisan \(...\) dan \[...\] juga harus diterima.
-20. Link YouTube format apa pun (youtu.be, watch?v=, shorts/, embed/) diubah jadi ID video saja. Link tidak valid ditolak. Menit konsep disimpan dalam detik.
-21. Video selalu tampil sebagai thumbnail dulu. Iframe (youtube-nocookie) baru dimuat setelah di-tap.
-22. Semua field video opsional. Soal tetap bisa terbit dengan pembahasan tertulis saja.
+20. Link YouTube format apa pun (youtu.be, watch?v=, shorts/, embed/) diubah jadi ID video saja. Link tidak valid ditolak. Menit konsep disimpan dalam detik. Saat ditampilkan, link dibangun ulang dari ID: Shorts jadi https://youtube.com/shorts/ID, video panjang jadi https://youtu.be/ID?t=DETIK.
+21. Video TIDAK di-embed di web. Semua video dibuka lewat tombol yang mengarah ke YouTube di tab baru (target="_blank" rel="noopener"). Di HP, link ini biasanya terbuka di aplikasi YouTube.
+22. Semua field video opsional dan tombolnya hanya muncul kalau link terisi. Pembahasan tertulis (Markdown + LaTeX) WAJIB ada di setiap soal. Link video pembahasan dianggap bagian dari pembahasan, jadi tidak boleh sampai ke browser sebelum attempt disubmit.
 23. Soal hanya bisa diterbitkan setelah admin membuka preview tampilan siswa.
 
 ## Jenjang
