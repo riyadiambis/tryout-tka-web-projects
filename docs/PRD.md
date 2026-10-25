@@ -19,14 +19,14 @@ Kalau terbukti, baru masuk pembayaran dan premium.
 - Admin (pemilik): input konten, terbitkan latihan dan TO.
 
 ## 4. Alur utama siswa
-Video YouTube > halaman materi > (opsional) tonton video materi > kerjakan 5 soal latihan tanpa login > submit > skor + pembahasan + Shorts per soal > ajakan "Coba TO Gratis" > daftar/masuk > kerjakan TO > skor + pembahasan.
+Video YouTube > halaman materi > (opsional) tonton video materi > kerjakan soal latihan tanpa login > submit > skor + pembahasan + Shorts per soal > ajakan "Coba TO Gratis" > daftar/masuk > kerjakan TO > skor + pembahasan.
 
 ## 5. Fitur siswa
 F1 Akun: daftar dengan nama panggilan, username, password, centang "orang tua/wali sudah tahu". Tanpa email dan no HP. Lupa password: hubungi admin.
 F2 Beranda: pilih jenjang SD atau SMP. SD bertanda "segera hadir" selama belum ada konten.
 F3 Dashboard: tampilan ala daftar tugas Classroom. Materi, latihan, dan TO tersusun per elemen, dengan status belum/selesai + skor terakhir.
-F4 Halaman materi: judul, deskripsi singkat, tombol "Tonton Materi di YouTube", tombol "Mulai Latihan".
-F5 Latihan 5 soal: semua soal di satu halaman, opsi berupa kartu besar, konfirmasi kalau ada soal kosong saat submit, boleh diulang.
+F4 Halaman materi: judul, deskripsi singkat, tombol "Tonton Materi di YouTube", lalu daftar paket latihan materi itu (jumlah soal tiap paket), masing-masing dengan tombol "Mulai Latihan".
+F5 Latihan (5 sampai 10 soal per paket): semua soal di satu halaman, opsi berupa kartu besar, konfirmasi kalau ada soal kosong saat submit, boleh diulang.
 F6 Hasil latihan: skor; per soal badge Benar/Salah, jawaban siswa, kunci, dan pembahasan tertulis (selalu ada); tombol "Lihat Pembahasan Video" ke Shorts (muncul kalau tersedia); tombol "Tonton Penjelasan Lengkap" ke menit konsep video panjang (muncul kalau tersedia); tombol "Ulangi" dan "Coba TO Gratis".
 F7 TO 10-15 soal: lobi (jumlah soal, durasi, aturan), satu soal per layar, panel nomor soal, timer, autosave, bisa lanjut setelah refresh, auto-submit saat waktu habis.
 F8 Hasil TO: skor, jumlah benar, lama pengerjaan, pembahasan per soal dengan tombol video yang sama seperti hasil latihan.
@@ -37,7 +37,7 @@ A2 Kelola elemen kisi-kisi per jenjang.
 A3 Kelola materi: jenjang, elemen, judul, link video materi.
 A4 Kelola soal: jenjang, elemen, materi, bentuk soal, teks (Markdown + LaTeX), gambar opsional, opsi, kunci, pembahasan, link Shorts, link video panjang + menit:detik, status draft/terbit/arsip. Editor teks dengan preview langsung di sebelahnya.
 A5 Preview tampilan siswa, wajib dibuka sebelum soal bisa diterbitkan.
-A6 Kelola latihan: pilih materi, pilih tepat 5 soal terbit, atur urutan, terbitkan.
+A6 Kelola latihan: pilih materi, pilih 5 sampai 10 soal terbit, atur urutan, terbitkan. Satu materi boleh punya lebih dari satu paket latihan.
 A7 Kelola TO: judul, jenjang, durasi, pilih 10-15 soal terbit, atur urutan, terbitkan.
 A8 Kelola siswa: daftar, cari username, reset password.
 A9 Laporan per paket: jumlah pengerja, rata-rata skor, persentase benar per soal (untuk mendeteksi kunci salah input dan bahan ide video).
@@ -46,6 +46,9 @@ A9 Laporan per paket: jumlah pengerja, rata-rata skor, persentase benar per soal
 Lengkap di .agents/rules/01-aturan-domain.md dan WAJIB diikuti.
 
 ## 8. Gambaran data
+Hierarki konten: Jenjang > Elemen > Materi > Soal. Contoh: SMP > Geometri dan Pengukuran > Teorema Pythagoras.
+- Bank soal per materi tidak dibatasi jumlahnya.
+- Soal wajib punya jenjang dan elemen. Materi opsional, supaya soal khusus TO tidak wajib punya halaman materi.
 - users: display_name, username, password_hash, role, source (asal link), created_at
 - elements: level, name, order
 - topics: level, element, title, slug, video_id
