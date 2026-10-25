@@ -82,12 +82,22 @@ export function Navbar({
           ) : null}
         </div>
 
-        {variant === 'home' ? (
+        {variant !== 'exam' ? (
           <nav aria-label="Pilih jenjang" class="hidden md:flex items-center gap-6 font-body font-extrabold text-[16px] text-ink">
-            <a href="/sd" class="min-h-[48px] inline-flex items-center hover:underline decoration-2 underline-offset-4">
+            <a
+              href="/sd"
+              class={`min-h-[48px] inline-flex items-center hover:underline decoration-2 underline-offset-4 ${
+                level === 'sd' ? 'underline' : ''
+              }`}
+            >
               SD Kelas 6
             </a>
-            <a href="/smp" class="min-h-[48px] inline-flex items-center hover:underline decoration-2 underline-offset-4">
+            <a
+              href="/smp"
+              class={`min-h-[48px] inline-flex items-center hover:underline decoration-2 underline-offset-4 ${
+                level === 'smp' ? 'underline' : ''
+              }`}
+            >
               SMP Kelas 9
             </a>
           </nav>
@@ -122,11 +132,9 @@ export function Navbar({
               <Button href="/masuk" variant="secondary" size="md" class="px-3.5">
                 Masuk
               </Button>
-              {variant === 'home' ? (
-                <Button href="/daftar" variant="primary" size="md" class="hidden sm:inline-flex px-4">
-                  Daftar
-                </Button>
-              ) : null}
+              <Button href="/daftar" variant="primary" size="md" class="hidden sm:inline-flex px-4">
+                Daftar
+              </Button>
             </div>
           )}
         </div>

@@ -129,7 +129,7 @@ export function TopicDetailPage({
           </div>
         </section>
 
-        {/* Bottom Promo to Regular Tryout (Audit Fix #1: Tryout Rutin) */}
+        {/* Bottom Promo to Tryout */}
         {featuredTryoutSlug ? (
           <Card
             variant="dashed"

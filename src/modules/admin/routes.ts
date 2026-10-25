@@ -199,9 +199,6 @@ export function createAdminRoutes() {
     })
 
     // 8. Kelola Latihan (/admin/latihan)
-    .get('/admin/latihan', ({ set }) => {
-      set.redirect = '/admin/latihan';
-    })
     .get('/latihan', ({ query }) => {
       const practices = DUMMY_QUIZZES.filter((q) => q.type === 'practice');
       const selectedId = query.id;

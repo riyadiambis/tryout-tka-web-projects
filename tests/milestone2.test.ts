@@ -32,7 +32,7 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(wrongLevel.status).toBe(404);
   });
 
-  test('1. Beranda (/): menampilkan SD Kelas 6 & SMP Kelas 9 aktif, bebas em dash & Tryout Akbar', async () => {
+  test('1. Beranda (/): menampilkan SD Kelas 6 & SMP Kelas 9 aktif, bebas em dash, Tryout Akbar & Tryout Rutin', async () => {
     const res = await app.handle(new Request('http://localhost/'));
     const html = await res.text();
 
@@ -43,6 +43,7 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(html).toContain('href="/masuk"');
     expect(html).toContain('href="/daftar"');
     expect(html).not.toContain('Tryout Akbar');
+    expect(html).not.toContain('Tryout Rutin');
     expect(html).not.toContain('/admin');
     expect(html).not.toContain('\u2014');
     expect(html).not.toContain('<iframe');
@@ -83,6 +84,7 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(withVideoHtml).toContain('rel="noopener noreferrer"');
     expect(withVideoHtml).not.toContain('<iframe');
     expect(withVideoHtml).not.toContain('Tryout Akbar');
+    expect(withVideoHtml).not.toContain('Tryout Rutin');
     expect(withVideoHtml).not.toContain('\u2014');
 
     const withoutVideoRes = await app.handle(
