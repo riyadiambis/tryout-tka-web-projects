@@ -25,11 +25,16 @@ trigger: always_on
 - Saat ditekan: elemen bergeser ke arah bayangan dan bayangannya mengecil
 - Aksen stabilo: linear-gradient(transparent 58%, stabilo 58%) di belakang satu kata kunci judul
 - Badge ikon: kotak 46px, radius 12px, warna solid, ikon/teks putih tebal
+- Jarak antar section diukur dari tepi bawah bayangan offset, bukan hanya dari border kartu, sehingga bayangan tidak pernah menabrak atau menimpa elemen berikutnya
+- Nama kelas Tailwind dilarang dirakit dari string dinamis (contoh: `text-${size}`). Semua nama kelas harus ditulis sebagai string utuh agar terdeteksi oleh Tailwind saat build
 
 ## Ukuran dan perangkat
 - Mobile-first, target HP Android murah dengan layar 360px
 - Halaman siswa: lebar konten maksimal 460px, rata tengah
 - Halaman admin: untuk laptop, lebar maksimal 1100px (form dan preview berdampingan)
+- Skala fluid: ukuran font root (html) 100% di bawah 1280px, 106.25% mulai 1280px, 112.5% mulai 1536px. Semua ukuran teks, jarak, dan komponen memakai rem supaya ikut membesar proporsional
+- Teks isi minimal 16px di SEMUA ukuran layar. Deskripsi kartu dan label kecil tidak boleh di bawah 14px
+- Navbar dan footer memakai lebar maksimal yang sama dengan konten halaman itu
 - Tinggi tombol dan area tap minimal 48px, teks isi minimal 16px
 - Opsi jawaban berupa kartu selebar konten, seluruh kartu bisa di-tap
 - Rumus panjang tidak boleh membuat halaman bisa digeser ke samping. Rumusnya di-scroll di dalam kotaknya sendiri
