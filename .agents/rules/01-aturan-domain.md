@@ -38,7 +38,7 @@ trigger: always_on
 ## Jenjang
 24. Semua materi, soal, dan paket punya jenjang: sd atau smp.
 25. Elemen kisi-kisi disimpan sebagai data per jenjang, BUKAN enum yang di-hardcode.
-26. Semua URL siswa berawalan jenjang: /sd/... dan /smp/...
+26. URL halaman konten berawalan jenjang: /sd/... dan /smp/... (halaman jenjang, materi, latihan, TO, dan hasil). Halaman umum TANPA awalan jenjang: / (beranda), /daftar, /masuk, /keluar, dan halaman 404. Halaman admin berawalan /admin.
 
 ## Disiapkan, belum dipakai
 27. Kolom access (free/premium) di paket dan kolom source (manual/ai) di soal sudah ada di database, tapi belum ada fiturnya. Semua paket MVP = free, semua soal = manual.
