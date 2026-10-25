@@ -67,14 +67,14 @@ Seluruh file mengikuti struktur di `.agents/rules/00-proyek.md`. Label `[M1]`, `
 - `src/views/components/badge.tsx` - komponen badge label, kategori, dan status evaluasi.
 - `src/views/components/input.tsx` - komponen input teks, password (dengan pemicu lihat/sembunyikan), pencarian, dan textarea beserta pesan error.
 - `src/views/components/select.tsx` - komponen dropdown select bergaya Buku Tulis.
-- `src/views/components/checkbox.tsx` - komponen kotak centang untuk form umum (persetujuan wali dan checklist admin).
-- `src/views/components/toggle.tsx` - komponen sakelar on/off dan pemilih biner netral (seperti pilihan `Benar` / `Salah` tanpa ikon centang/silang).
+- `src/views/components/checkbox.tsx` - komponen kotak centang (untuk persetujuan wali, checklist admin, serta kotak opsi pilihan ganda kompleks dengan centang standar warna navy di atas kuning stabilo).
+- `src/views/components/toggle.tsx` - komponen sakelar on/off dan pemilih biner netral (seperti pilihan `Benar` / `Salah` beraksen kuning stabilo dan navy tanpa ikon centang/silang).
 - `src/views/components/table.tsx` - komponen tabel data dengan pembungkus scroll horizontal aman dan tampilan kosong (`empty state`).
 - `src/views/components/modal.tsx` - komponen dialog modal konfirmasi dan pratinjau dengan backdrop gelap dan bayangan tebal.
 - `src/views/components/bottom-sheet.tsx` - komponen panel tarik bawah khusus navigasi daftar nomor soal di layar HP/tablet portrait.
 - `src/views/components/navbar.tsx` - komponen bilah navigasi atas halaman siswa (varian beranda, standar dengan tombol kembali, dan ujian TO; mendukung tampilan tamu menuju `/masuk` & `/daftar` serta tampilan sudah login dengan aksi `/keluar`).
 - `src/views/components/admin-sidebar.tsx` - komponen navigasi samping panel admin (8 menu utama).
-- `src/views/components/question-card.tsx` - komponen kartu soal saat pengerjaan untuk bentuk `single`, `multiple`, dan `category` (murni menerima `QuestionForAttempt`, memakai penanda pilihan netral tanpa ikon centang, dan mustahil merender kunci atau pembahasan).
+- `src/views/components/question-card.tsx` - komponen kartu soal saat pengerjaan untuk bentuk `single`, `multiple`, dan `category` (murni menerima `QuestionForAttempt`, memakai penanda pilihan kuning stabilo dan navy saja tanpa `check_circle` dan tanpa warna hijau/merah, serta mustahil merender kunci atau pembahasan).
 - `src/views/components/explanation-card.tsx` - komponen kartu tinjauan hasil dan pembahasan per soal beserta tombol video YouTube kondisional.
 - `src/views/components/timer.tsx` - komponen penunjuk sisa waktu hitung mundur TO dengan perubahan visual otomatis ke warna merah (`wrong`) saat sisa waktu 5 menit atau kurang.
 - `src/views/components/question-number-grid.tsx` - sub-komponen grid daftar nomor soal beserta legenda status (dipakai bersama di dalam `BottomSheet` pada HP dan panel kanan sticky pada TO desktop).
@@ -385,7 +385,7 @@ Kerjakan satu milestone hingga tuntas, lolos `typecheck` (`tsc --noEmit`), lolos
 
 #### Langkah 2.3: Pengerjaan Latihan dan Hasil Latihan (`src/modules/practice/`)
 1. Bangun `practice-attempt-page.tsx` (`GET /:level/latihan/:quizSlug`), endpoint `POST /:level/latihan/:quizSlug/kumpulkan`, dan `public/js/practice.js` mengacu ke `04-pengerjaan-latihan.html` (HP & desktop):
-   - Tampilkan kartu progres terjawab (`0 dari 5 terjawab` di awal) dan seluruh kartu soal `QuestionCard` untuk bentuk `single`, `multiple`, dan `category` dengan penanda opsi netral tanpa ikon centang.
+   - Tampilkan kartu progres terjawab (`0 dari 5 terjawab` di awal) dan seluruh kartu soal `QuestionCard` untuk bentuk `single`, `multiple`, dan `category` dengan penanda pilihan hanya memakai kuning stabilo dan navy (tanpa warna hijau/merah dan tanpa ikon `check_circle`; checkbox `multiple` boleh memakai centang standar navy di atas kuning stabilo).
    - Saat pengguna memilih jawaban di ketiga bentuk soal, perbarui tampilan kartu opsi terpilih, ubah badge soal menjadi "Sudah diisi" (khusus `category` hanya setelah semua pernyataan dipilih), dan perbarui penghitung serta progress bar terjawab.
    - Saat klik "Kumpulkan Jawaban": jika masih ada soal kosong, buka `Modal` konfirmasi berisi jumlah terjawab dan daftar nomor kosong; jika semua sudah diisi atau pengguna menekan "Kumpulkan" di dalam modal, arahkan ke `/:level/latihan/:quizSlug/hasil`.
 2. Bangun `practice-result-page.tsx` (`GET /:level/latihan/:quizSlug/hasil`) mengacu ke `05-hasil-latihan.html` (HP & desktop): kartu skor dummy dengan maskot selebrasi lokal, daftar `ExplanationCard` (contoh Benar, Salah, dan Kosong, rumus ter-render rapi, serta tombol Shorts dan Video Panjang kondisional), diikuti tombol bawah "Ulangi Latihan" dan "Coba TO Gratis".
@@ -394,7 +394,7 @@ Kerjakan satu milestone hingga tuntas, lolos `typecheck` (`tsc --noEmit`), lolos
 1. Bangun `tryout-lobby-page.tsx` (`GET /:level/tryout/:quizSlug`) mengacu ke `hp/06a-lobi-to.html` (adaptasi `max-w-desktop` di layar lebar): informasi jumlah soal, durasi menit, 1x kesempatan, 3 aturan pengerjaan, dan tombol utama "Mulai TO" menuju `/:level/tryout/:quizSlug/kerjakan`.
 2. Bangun `tryout-attempt-page.tsx` (`GET /:level/tryout/:quizSlug/kerjakan`), endpoint `POST /:level/tryout/:quizSlug/kumpulkan`, dan `public/js/tryout.js` mengacu ke `hp/06b-pengerjaan-to.html` dan `desktop/06b-pengerjaan-to.html`:
    - Tampilkan `Timer` hitung mundur selalu terlihat di bagian atas (mendukung query demo `?sisa=305` dan pemicu demo non-production untuk mengetes perubahan ke warna merah `wrong` saat sisa `<= 5` menit).
-   - Render satu soal aktif per layar dengan tombol navigasi "Sebelumnya", penanda tampilan "Ragu-ragu", dan "Berikutnya" (penanda opsi tetap netral tanpa ikon centang).
+   - Render satu soal aktif per layar dengan tombol navigasi "Sebelumnya", penanda tampilan "Ragu-ragu", dan "Berikutnya" (penanda pilihan hanya kuning stabilo dan navy tanpa `check_circle` dan tanpa warna hijau/merah).
    - Di HP/tablet portrait: tombol "Daftar Soal" membuka `BottomSheet` berisi grid nomor soal dan tombol "Selesai dan Kumpulkan". Di laptop/desktop (`>= 1024px`): tampilkan layout ujian komputer 2 kolom dengan panel Daftar Nomor sticky di sisi kanan (tanpa tab "Buku Rumus" maupun kotak bocoran rumus).
    - Saat klik "Selesai dan Kumpulkan", tampilkan `Modal` konfirmasi ringkasan soal terjawab dan kosong sebelum mengarahkan ke Hasil TO.
 3. Bangun `tryout-result-page.tsx` (`GET /:level/tryout/:quizSlug/hasil`) mengacu ke `hp/07-hasil-to.html` (adaptasi `max-w-desktop` di layar lebar): kartu skor dummy, jumlah benar, lama pengerjaan, daftar `ExplanationCard` per soal, dan satu tombol kembali ke halaman jenjang (**tanpa tombol ulangi**).
@@ -435,7 +435,7 @@ Gunakan komponen dasar Buku Tulis serta pola tata letak `a1-daftar-soal.html` da
 
 #### Langkah 3.3: Integrasi Akhir dan Pemeriksaan Lintas Aplikasi
 1. Daftarkan modul `admin` ke `src/index.ts`. Pastikan tetap tidak ada satu pun tautan menuju `/admin` pada halaman siswa atau halaman umum mana pun.
-2. Lakukan pencarian teks menyeluruh di `src/` dan `public/` untuk memastikan nol karakter em dash, nol sebutan "Tryout Akbar", nol CDN eksternal, dan nol ikon centang pada komponen opsi jawaban siswa.
+2. Lakukan pencarian teks menyeluruh di `src/` dan `public/` untuk memastikan nol karakter em dash, nol sebutan "Tryout Akbar", nol CDN eksternal, nol warna hijau/merah pada opsi pengerjaan siswa, dan nol ikon `check_circle` pada penanda pilihan siswa.
 3. Jalankan `typecheck`, `build:css`, dan laksanakan seluruh **Checklist Uji Milestone 3 (Bagian 9.3)** sebelum membuat PR 3.
 
 ---
@@ -482,7 +482,7 @@ Setiap PR wajib diuji manual menggunakan DevTools browser pada tiga ukuran viewp
 - [ ] **5. Hasil Latihan (`/:level/latihan/:quizSlug/hasil`)**:
   - **HP 360px / Tablet / Laptop**: Menampilkan skor dummy, maskot selebrasi lokal, contoh badge Benar (hijau), Salah (merah), dan Kosong (abu-abu), jawaban siswa vs kunci, pembahasan berumus KaTeX rapi, tombol Shorts & Video Panjang yang hanya muncul pada soal yang datanya terisi (membuka tab baru), serta tombol "Ulangi Latihan" dan "Coba TO Gratis".
 - [ ] **6. Lobi TO (`/:level/tryout/:quizSlug`) dan Pengerjaan TO (`/:level/tryout/:quizSlug/kerjakan`)**:
-  - **HP 360px & Tablet Portrait**: Lobi menampilkan jumlah soal, durasi, 1x kesempatan, dan aturan. Saat mulai TO: tampil satu soal per layar (opsi netral tanpa centang), tombol Sebelumnya/Berikutnya bekerja, timer hitung mundur selalu terlihat di atas dan berubah merah (`wrong`) saat sisa `<= 5` menit, serta klik "Daftar Soal" membuka **Bottom Sheet** nomor soal dari bawah layar.
+  - **HP 360px & Tablet Portrait**: Lobi menampilkan jumlah soal, durasi, 1x kesempatan, dan aturan. Saat mulai TO: tampil satu soal per layar (penanda pilihan hanya kuning stabilo dan navy tanpa `check_circle`), tombol Sebelumnya/Berikutnya bekerja, timer hitung mundur selalu terlihat di atas dan berubah merah (`wrong`) saat sisa `<= 5` menit, serta klik "Daftar Soal" membuka **Bottom Sheet** nomor soal dari bawah layar.
   - **Tablet Landscape & Laptop**: Pengerjaan TO otomatis beralih ke layout ujian komputer 2 kolom (soal aktif di kolom kiri, panel Daftar Nomor Soal & tombol Selesai sticky di kolom kanan tanpa bottom sheet dan tanpa tab "Buku Rumus").
   - **Cek View Source & Network**: Sama sekali **tidak ditemukan** kunci jawaban, pembahasan, maupun link video pembahasan di HTML/JS halaman Pengerjaan TO.
 - [ ] **7. Hasil TO (`/:level/tryout/:quizSlug/hasil`)**:
