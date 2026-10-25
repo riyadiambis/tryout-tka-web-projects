@@ -1,7 +1,11 @@
 import { html } from '@elysiajs/html';
 import { staticPlugin } from '@elysiajs/static';
 import { Elysia } from 'elysia';
+import { createAuthRoutes } from './modules/auth/routes';
 import { devRoutes } from './modules/dev/routes';
+import { createPracticeRoutes } from './modules/practice/routes';
+import { createTopicRoutes } from './modules/topic/routes';
+import { createTryoutRoutes } from './modules/tryout/routes';
 import { NotFoundPage } from './views/not-found-page';
 
 export interface CreateAppOptions {
@@ -10,6 +14,8 @@ export interface CreateAppOptions {
 
 export async function createApp(options: CreateAppOptions = {}) {
   const env = options.nodeEnv ?? process.env.NODE_ENV ?? 'development';
+  const isDevMode = env !== 'production';
+
   const app = new Elysia()
     .onError(({ code, set }) => {
       if (code === 'NOT_FOUND') {
@@ -20,9 +26,16 @@ export async function createApp(options: CreateAppOptions = {}) {
     })
     .use(html());
 
-  if (env !== 'production') {
+  if (isDevMode) {
     app.use(devRoutes);
   }
+
+  // Register explicit non-level routes BEFORE /:level dynamic routes
+  app
+    .use(createAuthRoutes())
+    .use(createPracticeRoutes())
+    .use(createTryoutRoutes(isDevMode))
+    .use(createTopicRoutes(isDevMode));
 
   app.use(
     await staticPlugin({
