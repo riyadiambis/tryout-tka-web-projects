@@ -8,33 +8,36 @@ export interface CreateAppOptions {
   nodeEnv?: string;
 }
 
-export function createApp(options: CreateAppOptions = {}) {
+export async function createApp(options: CreateAppOptions = {}) {
   const env = options.nodeEnv ?? process.env.NODE_ENV ?? 'development';
   const app = new Elysia()
-    .use(html())
-    .use(
-      staticPlugin({
-        assets: 'public',
-        prefix: '',
-      })
-    );
+    .onError(({ code, set }) => {
+      if (code === 'NOT_FOUND') {
+        set.status = 404;
+        set.headers['content-type'] = 'text/html; charset=utf-8';
+        return NotFoundPage();
+      }
+    })
+    .use(html());
 
   if (env !== 'production') {
     app.use(devRoutes);
   }
 
-  app.all('*', ({ set }) => {
-    set.status = 404;
-    set.headers['content-type'] = 'text/html; charset=utf-8';
-    return NotFoundPage();
-  });
+  app.use(
+    await staticPlugin({
+      assets: 'public',
+      prefix: '',
+      alwaysStatic: false,
+    })
+  );
 
   return app;
 }
 
 if (import.meta.main) {
   const port = Number(process.env.PORT ?? 3000);
-  const app = createApp();
+  const app = await createApp();
   app.listen(port);
   console.log(`Yuk Ngeles berjalan di http://localhost:${port}`);
 }

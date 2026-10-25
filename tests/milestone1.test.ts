@@ -1,9 +1,9 @@
 import { describe, expect, test } from 'bun:test';
 import { createApp } from '../src/index';
 
-describe('Checklist Uji Milestone 1', () => {
-  const devApp = createApp({ nodeEnv: 'development' });
-  const prodApp = createApp({ nodeEnv: 'production' });
+describe('Checklist Uji Milestone 1', async () => {
+  const devApp = await createApp({ nodeEnv: 'development' });
+  const prodApp = await createApp({ nodeEnv: 'production' });
 
   test('serves local CSS, WOFF2 fonts, and SVG mascots without external CDNs', async () => {
     const cssRes = await devApp.handle(new Request('http://localhost/css/app.css'));
