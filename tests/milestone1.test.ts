@@ -9,9 +9,9 @@ describe('Checklist Uji Milestone 1', async () => {
     const cssRes = await devApp.handle(new Request('http://localhost/css/app.css'));
     expect(cssRes.status).toBe(200);
     const cssText = await cssRes.text();
-    expect(cssText).toContain('Baloo 2');
+    expect(cssText).toContain('baloo-2-700.woff2');
     expect(cssText).toContain('Nunito');
-    expect(cssText).toContain('--color-paper:#FFFDF4');
+    expect(cssText.toLowerCase()).toContain('--color-paper:#fffdf4');
 
     const katexRes = await devApp.handle(new Request('http://localhost/css/katex.min.css'));
     expect(katexRes.status).toBe(200);
