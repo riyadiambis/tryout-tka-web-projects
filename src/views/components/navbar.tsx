@@ -52,25 +52,29 @@ export function Navbar({
 
           {variant !== 'home' ? (
             <div class="flex flex-col min-w-0">
-              <div class="flex items-center gap-1.5">
-                <a href="/" class="text-[11px] font-extrabold uppercase tracking-wider text-ink-soft hover:text-ink">
+              <div class="flex items-center gap-1.5 whitespace-nowrap overflow-hidden">
+                <a href="/" class="hidden sm:inline text-[11px] font-extrabold uppercase tracking-wider text-ink-soft hover:text-ink">
                   Yuk Ngeles
                 </a>
                 {level ? (
                   <>
-                    <span class="text-ink-soft text-[11px]">/</span>
+                    <span class="hidden sm:inline text-ink-soft text-[11px]">/</span>
                     <span
-                      class={`text-[11px] font-extrabold uppercase tracking-wider ${
+                      class={`text-[11px] font-extrabold uppercase tracking-wider truncate ${
                         level === 'sd' ? 'text-badge-orange' : 'text-badge-blue'
                       }`}
                     >
                       {formatLevelTitle(level)}
                     </span>
                   </>
-                ) : null}
+                ) : (
+                  <span class="sm:hidden text-[11px] font-extrabold uppercase tracking-wider text-ink-soft">
+                    Yuk Ngeles
+                  </span>
+                )}
               </div>
               {title ? (
-                <span class="font-title font-bold text-[18px] sm:text-[20px] text-ink truncate leading-tight" safe>
+                <span class="font-title font-bold text-[17px] sm:text-[20px] text-ink truncate leading-tight" safe>
                   {title}
                 </span>
               ) : null}

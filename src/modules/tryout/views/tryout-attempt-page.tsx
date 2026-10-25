@@ -66,16 +66,16 @@ export function TryoutAttemptPage({
       >
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Kolom Kiri (8 kolom di Desktop): Satu Soal Aktif + Navigasi */}
-          <div class="lg:col-span-8 flex flex-col gap-4">
+          <div class="min-w-0 lg:col-span-8 flex flex-col gap-4">
             {/* Bar Info Soal Aktif & Status Tersimpan */}
-            <div class="flex items-center justify-between flex-wrap gap-2 px-1">
+            <div class="flex items-center justify-between flex-wrap gap-2">
               <div class="flex items-center gap-2">
                 <span class="font-title font-extrabold text-[20px] text-ink" id="tryout-step-indicator">
                   Soal {activeQuestionNumber} dari {totalCount}
                 </span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-chip bg-paper-soft border-2 border-ink text-[12px] font-extrabold text-ink-soft">
+              <div class="flex items-center flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-chip bg-paper-soft border-2 border-ink text-[12px] font-extrabold text-ink-soft">
                   <span class="w-2 h-2 rounded-full bg-ink inline-block" />
                   <span id="tryout-autosave-label">Tersimpan otomatis</span>
                 </span>
@@ -83,7 +83,7 @@ export function TryoutAttemptPage({
                 <button
                   type="button"
                   id="btn-open-tryout-sheet"
-                  class="lg:hidden min-h-[44px] px-3.5 py-1.5 rounded-badge bg-card border-2 border-ink shadow-solid-sm font-title font-bold text-[15px] text-ink inline-flex items-center gap-1.5 cursor-pointer pressable-sm"
+                  class="lg:hidden min-h-[44px] px-3 py-1.5 rounded-badge bg-card border-2 border-ink shadow-solid-sm font-title font-bold text-[14px] text-ink inline-flex items-center gap-1.5 cursor-pointer pressable-sm"
                 >
                   <Icon name="grid" class="w-4 h-4" />
                   <span>Daftar Soal</span>
@@ -105,15 +105,15 @@ export function TryoutAttemptPage({
               ))}
             </div>
 
-            {/* Bar Navigasi Bawah Soal (Sebelumnya / Berikutnya / Kumpulkan di HP) */}
-            <Card padding="sm" class="flex items-center justify-between gap-2.5">
+            {/* Bar Navigasi Bawah Soal (Sebelumnya / Berikutnya) */}
+            <div class="grid grid-cols-2 sm:flex sm:items-center sm:justify-between gap-2.5 sm:p-4 sm:bg-card sm:border-2 sm:border-ink sm:rounded-card sm:shadow-solid">
               <Button
                 id="btn-prev-question"
                 type="button"
                 variant="secondary"
                 iconLeft="arrow-left"
                 disabled={activeQuestionNumber <= 1}
-                class="flex-1 sm:flex-initial"
+                class="w-full sm:w-auto"
               >
                 Sebelumnya
               </Button>
@@ -130,11 +130,11 @@ export function TryoutAttemptPage({
                 type="button"
                 variant="primary"
                 iconRight="arrow-right"
-                class="flex-1 sm:flex-initial"
+                class="w-full sm:w-auto"
               >
                 Berikutnya
               </Button>
-            </Card>
+            </div>
 
             {/* Tombol Kumpulkan Khusus Layar HP/Tablet */}
             <div class="lg:hidden pt-1">
