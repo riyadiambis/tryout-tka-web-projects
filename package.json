@@ -1,0 +1,28 @@
+{
+  "name": "yuk-ngeles-tka",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles/app.css -o ./public/css/app.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles/app.css -o ./public/css/app.css --watch",
+    "dev": "bun run build:css && bun --watch src/index.ts",
+    "start": "bun run build:css && bun src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "elysia": "^1.2.25",
+    "katex": "^0.16.21",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/katex": "^0.16.7",
+    "@types/markdown-it": "^14.1.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
+  }
+}
