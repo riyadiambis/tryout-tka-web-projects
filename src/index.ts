@@ -1,6 +1,7 @@
 import { html } from '@elysiajs/html';
 import { staticPlugin } from '@elysiajs/static';
 import { Elysia } from 'elysia';
+import { createAdminRoutes } from './modules/admin/routes';
 import { createAuthRoutes } from './modules/auth/routes';
 import { devRoutes } from './modules/dev/routes';
 import { createPracticeRoutes } from './modules/practice/routes';
@@ -32,6 +33,7 @@ export async function createApp(options: CreateAppOptions = {}) {
 
   // Register explicit non-level routes BEFORE /:level dynamic routes
   app
+    .use(createAdminRoutes())
     .use(createAuthRoutes())
     .use(createPracticeRoutes())
     .use(createTryoutRoutes(isDevMode))
