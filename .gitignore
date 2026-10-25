@@ -16,3 +16,6 @@ public/css/app.css
 # Logs & System
 *.log
 .DS_Store
+
+# Stitch raw export
+docs/stitch/_mentah/
