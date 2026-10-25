@@ -25,6 +25,8 @@ trigger: always_on
 - Saat ditekan: elemen bergeser ke arah bayangan dan bayangannya mengecil
 - Aksen stabilo: linear-gradient(transparent 58%, stabilo 58%) di belakang satu kata kunci judul
 - Badge ikon: kotak 46px, radius 12px, warna solid, ikon/teks putih tebal
+- Jarak antar section diukur dari tepi bawah bayangan offset, bukan hanya dari border kartu, sehingga bayangan tidak pernah menabrak atau menimpa elemen berikutnya
+- Nama kelas Tailwind dilarang dirakit dari string dinamis (contoh: `text-${size}`). Semua nama kelas harus ditulis sebagai string utuh agar terdeteksi oleh Tailwind saat build
 
 ## Ukuran dan perangkat
 - Mobile-first, target HP Android murah dengan layar 360px

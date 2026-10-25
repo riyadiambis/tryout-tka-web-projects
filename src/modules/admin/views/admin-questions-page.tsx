@@ -194,7 +194,7 @@ export function AdminQuestionsPage({
               </div>
 
               <div class="flex items-center gap-2 self-end sm:self-center">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-paper border-2 border-ink rounded-badge shadow-solid-sm font-label-section text-[12px] text-ink uppercase">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-paper border-2 border-ink rounded-badge shadow-solid-sm font-body font-extrabold tracking-wide text-[12px] text-ink uppercase">
                   <span class="w-2 h-2 rounded-full bg-stabilo border border-ink"></span>
                   <span>Total {questions.length} Soal</span>
                 </span>

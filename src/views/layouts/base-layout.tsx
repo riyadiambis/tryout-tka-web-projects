@@ -27,7 +27,7 @@ export function BaseLayout({
           <meta name="description" content={description} />
           <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
           <link rel="stylesheet" href="/css/katex.min.css" />
-          <link rel="stylesheet" href="/css/app.css" />
+          <link rel="stylesheet" href={process.env.NODE_ENV === 'production' ? '/css/app.css' : `/css/app.css?t=${Date.now()}`} />
         </head>
         <body class={`min-h-screen flex flex-col ${bodyClass}`.trim()}>
           {children}

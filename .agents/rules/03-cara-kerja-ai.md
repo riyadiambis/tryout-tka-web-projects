@@ -12,6 +12,7 @@
 - Bandingkan dengan PNG desain di docs/stitch/. Perbaiki selisih yang terlihat: jarak, ukuran font, border, bayangan, warna, dan posisi elemen.
 - Pastikan tidak ada scroll ke samping di lebar 360px.
 - Pastikan tidak ada em dash di teks yang terlihat pengguna.
+- Klaim tampilan "rapi" atau "mirip Stitch" WAJIB disertai tabel ukur (font, jarak, overlap) dan screenshot. Laporan tanpa bukti dianggap belum selesai.
 
 ## Verifikasi fungsi
 - Setiap helper di src/lib/ punya test dengan bun test, dan semua test harus lulus.
@@ -21,4 +22,4 @@
 - Buka View Source halaman pengerjaan latihan dan TO: tidak boleh ada kunci jawaban, pembahasan, atau link video pembahasan dalam bentuk apa pun.
 
 ## Laporan
-- Setiap selesai milestone, tulis: apa yang dikerjakan, hasil verifikasi tampilan, fungsi, dan keamanan, serta apa yang belum selesai.
+- Setiap selesai milestone, tulis: apa yang dikerjakan, hasil verifikasi tampilan (dengan tabel ukur dan screenshot), fungsi, dan keamanan, serta apa yang belum selesai. Laporan tanpa bukti dianggap belum selesai.

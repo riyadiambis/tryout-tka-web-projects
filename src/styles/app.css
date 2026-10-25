@@ -129,11 +129,13 @@
   }
 
   .stabilo-highlight {
-    display: inline-block;
-    line-height: 1.05;
+    display: inline;
     white-space: nowrap;
-    background: linear-gradient(transparent 58%, var(--color-stabilo) 58%);
-    padding-inline: 0.15em;
+    background: linear-gradient(to top, var(--color-stabilo) 42%, transparent 42%);
+    padding-left: 0.15em;
+    padding-right: 0.02em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   .pressable {

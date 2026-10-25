@@ -39,6 +39,15 @@ export async function createApp(options: CreateAppOptions = {}) {
     .use(createTryoutRoutes(isDevMode))
     .use(createTopicRoutes(isDevMode));
 
+  // Serve CSS with no-cache in dev mode to prevent stale browser styling
+  app.get('/css/app.css', ({ set }) => {
+    set.headers['content-type'] = 'text/css; charset=utf-8';
+    set.headers['cache-control'] = isDevMode
+      ? 'no-cache, no-store, must-revalidate'
+      : 'public, max-age=86400';
+    return Bun.file('public/css/app.css');
+  });
+
   app.use(
     await staticPlugin({
       assets: 'public',
@@ -51,6 +60,15 @@ export async function createApp(options: CreateAppOptions = {}) {
 }
 
 if (import.meta.main) {
+  const isDev = process.env.NODE_ENV !== 'production';
+  if (isDev) {
+    try {
+      Bun.spawnSync(['bun', 'run', 'build:css']);
+    } catch (e) {
+      console.warn('Gagal build CSS otomatis saat dev start:', e);
+    }
+  }
+
   const port = Number(process.env.PORT ?? 3000);
   const app = await createApp();
   app.listen(port);

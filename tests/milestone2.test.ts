@@ -85,6 +85,13 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(html).not.toContain('/admin');
     expect(html).not.toContain('\u2014');
     expect(html).not.toContain('<iframe');
+
+    // TAHAP 4: Tepat satu h1 dan teks brand YouTube muncul tepat satu kali
+    const h1Matches = html.match(/<h1[\s>]/g) || [];
+    expect(h1Matches.length).toBe(1);
+
+    const brandOccurrences = html.match(/Belajar bareng Yuk Ngeles/g) || [];
+    expect(brandOccurrences.length).toBe(1);
   });
 
   test('2. Halaman Jenjang (/sd & /smp): mode tamu dan mode demo login berfungsi', async () => {
