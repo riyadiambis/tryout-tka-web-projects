@@ -89,9 +89,10 @@ Dari database: jumlah attempt latihan, jumlah akun baru, jumlah TO selesai, dan 
 8. "Mirip Classroom" = susunan tampilan ala daftar tugas, BUKAN fitur kelas untuk guru.
 
 ## 15. Rencana ISSUE
-- ISSUE-01 Fondasi: setup proyek, Docker Compose, skema database lengkap, layout dasar Buku Tulis, render Markdown + LaTeX.
-- ISSUE-02 Akun: daftar, masuk, keluar, role admin, sesi, pembatasan login.
-- ISSUE-03 Admin konten: elemen, materi, soal + preview, draft/terbit/arsip, kelola siswa.
-- ISSUE-04 Latihan: halaman materi, pengerjaan, penilaian server, hasil + pembahasan + video.
-- ISSUE-05 TO: lobi, pengerjaan, timer server, autosave, auto-submit, hasil, kelola TO, laporan.
+Pendekatan: frontend dulu dengan data dummy dari server, lalu disambung ke database satu per satu.
+- ISSUE-01 Fondasi UI: setup proyek tanpa database, tema Tailwind dari docs/stitch/TOKENS.md, komponen dasar, semua halaman siswa dan admin dengan data dummy dari server, render Markdown + LaTeX.
+- ISSUE-02 Database + Akun: Docker Compose MySQL, skema lengkap, daftar, masuk, keluar, role admin, hash password argon2.
+- ISSUE-03 Admin konten: halaman admin disambung ke database (elemen, materi, soal, draft/terbit/arsip, kelola siswa).
+- ISSUE-04 Latihan: halaman latihan disambung ke database, penilaian di server, hasil + pembahasan.
+- ISSUE-05 TO: timer server, autosave, auto-submit, hasil, kelola TO, laporan.
 - ISSUE-06 Deploy: container di mimi, Cloudflare Tunnel, backup harian.
