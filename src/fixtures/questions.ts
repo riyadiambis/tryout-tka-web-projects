@@ -401,9 +401,9 @@ export const DUMMY_ADMIN_QUESTIONS: AdminQuestionRecord[] = [
   },
   {
     id: 'q-sd-07',
-    code: 'MAT-6-ALJ-001',
+    code: 'MAT-6-BIL-007',
     level: 'sd',
-    elementId: 'el-sd-alj',
+    elementId: 'el-sd-bil',
     topicId: 'top-sd-rasio',
     questionType: 'single',
     bodyRaw: 'Perbandingan kelereng Andi dan Budi adalah $3 : 5$. Jika jumlah kelereng mereka $40$ butir, banyak kelereng Budi adalah ...',
@@ -465,7 +465,7 @@ export const DUMMY_ADMIN_QUESTIONS: AdminQuestionRecord[] = [
     id: 'q-sd-10',
     code: 'MAT-6-TO-010',
     level: 'sd',
-    elementId: 'el-sd-alj',
+    elementId: 'el-sd-bil',
     topicId: null, // Khusus TO tanpa materi
     questionType: 'category',
     bodyRaw: 'Harga 4 buku tulis adalah $\\text{Rp}18.000$. Tentukan kebenaran pernyataan berikut!',

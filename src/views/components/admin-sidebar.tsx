@@ -26,7 +26,7 @@ const MENU_ITEMS: { key: AdminMenuKey; label: string; href: string; icon: IconNa
   { key: 'reports', label: 'Laporan', href: '/admin/laporan', icon: 'chart' },
 ];
 
-export function AdminSidebar({ activeMenu, adminName = 'Kak Riyadi' }: AdminSidebarProps): JSX.Element {
+export function AdminSidebar({ activeMenu, adminName = 'Admin Yuk Ngeles' }: AdminSidebarProps): JSX.Element {
   return (
     <aside
       id="admin-sidebar"

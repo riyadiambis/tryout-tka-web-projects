@@ -109,9 +109,9 @@ const RAW_TOPICS: RawTopicSeed[] = [
   {
     id: 'top-sd-rasio',
     level: 'sd',
-    elementId: 'el-sd-alj',
-    elementName: 'Aljabar',
-    elementBadgeColor: 'green',
+    elementId: 'el-sd-bil',
+    elementName: 'Bilangan',
+    elementBadgeColor: 'orange',
     title: 'Rasio dan Perbandingan Senilai',
     slug: 'rasio-perbandingan',
     description:
@@ -135,7 +135,7 @@ const RAW_TOPICS: RawTopicSeed[] = [
     id: 'top-sd-data',
     level: 'sd',
     elementId: 'el-sd-dat',
-    elementName: 'Data dan Peluang',
+    elementName: 'Data',
     elementBadgeColor: 'blue',
     title: 'Membaca Diagram Batang dan Rata-rata',
     slug: 'diagram-dan-rata-rata',

@@ -17,29 +17,27 @@ export function HomePage({
     user,
     containerMode: 'beranda',
     children: (
-      <div class="flex flex-col gap-8 sm:gap-10">
-        {/* Hero Section: Single card on mobile, 2 columns on desktop */}
-        <Card padding="lg" class="relative overflow-hidden">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div class="md:col-span-7 flex flex-col gap-4">
+      <div class="flex flex-col gap-10 md:gap-14 lg:gap-16">
+        {/* Hero Section: Single card on mobile, 2 columns with generous vertical room on desktop */}
+        <Card padding="none" class="relative overflow-hidden p-6 sm:p-8 md:p-10 lg:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Headline, subtext, actions */}
+            <div class="md:col-span-7 flex flex-col gap-5 sm:gap-6">
               <div class="flex items-center gap-2 flex-wrap">
-                <Badge variant="stabilo" size="md">
-                  Sesuai kisi-kisi resmi TKA
-                </Badge>
                 <Badge variant="neutral" size="md">
-                  Gratis Latihan &amp; Pembahasan
+                  Gratis Latihan & Pembahasan
                 </Badge>
               </div>
 
-              <h1 class="font-title font-extrabold text-[30px] sm:text-[40px] text-ink leading-[1.18] tracking-tight">
+              <h1 class="font-title font-extrabold text-[32px] sm:text-[42px] lg:text-[46px] text-ink leading-[1.16] tracking-tight">
                 Ngeles dari <span class="stabilo-highlight">cara ribet</span>, bukan dari belajar.
               </h1>
 
-              <p class="text-[16px] sm:text-[18px] text-ink-soft leading-relaxed">
-                Teman latihan soal dan Tryout TKA Matematika untuk kamu yang duduk di SD Kelas 6 maupun SMP Kelas 9. Lengkap dengan pembahasan langkah demi langkah dan video YouTube Kak Riyadi.
+              <p class="text-[16px] sm:text-[18px] lg:text-[19px] text-ink-soft leading-relaxed">
+                Latihan soal gratis dan pembahasan lengkap untuk TKA Matematika SD dan SMP.
               </p>
 
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Button href="#pilih-jenjang" variant="primary" size="lg" iconRight="arrow-right">
                   Mulai Belajar Sekarang
                 </Button>
@@ -51,51 +49,47 @@ export function HomePage({
                   iconLeft="youtube"
                   iconRight="external-link"
                 >
-                  Channel Kak Riyadi
+                  Channel YouTube
                 </Button>
               </div>
             </div>
 
+            {/* Right Column: Large mascot hero image */}
             <div class="md:col-span-5 flex flex-col items-center justify-center relative">
               <img
-                src="/img/mascot-wave.svg"
-                alt="Maskot Yuk Ngeles menyapa siswa"
-                class="w-32 h-32 md:hidden object-contain"
-              />
-              <img
-                src="/img/hero-notebook.svg"
-                alt="Ilustrasi buku tulis matematika Yuk Ngeles"
-                class="hidden md:block w-full max-w-[360px] h-auto object-contain"
+                src="/img/maskot-hero.png"
+                alt="Maskot Yuk Ngeles belajar matematika"
+                class="w-full max-w-[280px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[460px] h-auto object-contain drop-shadow-md mx-auto"
               />
             </div>
           </div>
         </Card>
 
         {/* Pilih Jenjang */}
-        <section id="pilih-jenjang" class="flex flex-col gap-3.5">
+        <section id="pilih-jenjang" class="flex flex-col gap-4">
           <div class="flex items-center justify-between px-1">
             <h2 class="label-section">PILIH JENJANG KAMU</h2>
-            <span class="text-[13px] font-bold text-ink-soft">TKA Matematika</span>
+            <span class="text-[14px] font-bold text-ink-soft">TKA Matematika</span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* SD Kelas 6 */}
-            <Card variant="interactive" href="/sd" padding="lg" class="flex flex-col gap-4">
+            <Card variant="interactive" href="/sd" padding="lg" class="flex flex-col gap-5">
               <div class="flex items-start justify-between gap-3">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3.5">
                   <Badge variant="orange" size="icon">
                     SD
                   </Badge>
                   <div>
                     <div class="flex items-center gap-2 flex-wrap">
-                      <h3 class="font-title font-extrabold text-[22px] text-ink leading-tight">
+                      <h3 class="font-title font-extrabold text-[22px] sm:text-[24px] text-ink leading-tight">
                         SD Kelas 6
                       </h3>
                       <Badge variant="correct" pill>
                         Tersedia
                       </Badge>
                     </div>
-                    <p class="text-[15px] text-ink-soft mt-0.5">
+                    <p class="text-[15px] sm:text-[16px] text-ink-soft mt-1">
                       Latihan per materi dan simulasi TO TKA SD
                     </p>
                   </div>
@@ -108,7 +102,7 @@ export function HomePage({
               <div class="flex flex-wrap gap-2 pt-1">
                 {sdElements.map((name) => (
                   <span
-                    class="px-2.5 py-1 rounded-chip bg-paper border-2 border-ink text-[13px] font-bold text-ink"
+                    class="px-3 py-1.5 rounded-chip bg-paper border-2 border-ink text-[14px] font-bold text-ink"
                     safe
                   >
                     {name}
@@ -118,22 +112,22 @@ export function HomePage({
             </Card>
 
             {/* SMP Kelas 9 */}
-            <Card variant="interactive" href="/smp" padding="lg" class="flex flex-col gap-4">
+            <Card variant="interactive" href="/smp" padding="lg" class="flex flex-col gap-5">
               <div class="flex items-start justify-between gap-3">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3.5">
                   <Badge variant="blue" size="icon">
                     SMP
                   </Badge>
                   <div>
                     <div class="flex items-center gap-2 flex-wrap">
-                      <h3 class="font-title font-extrabold text-[22px] text-ink leading-tight">
+                      <h3 class="font-title font-extrabold text-[22px] sm:text-[24px] text-ink leading-tight">
                         SMP Kelas 9
                       </h3>
                       <Badge variant="correct" pill>
                         Tersedia
                       </Badge>
                     </div>
-                    <p class="text-[15px] text-ink-soft mt-0.5">
+                    <p class="text-[15px] sm:text-[16px] text-ink-soft mt-1">
                       Latihan per materi dan simulasi TO TKA SMP
                     </p>
                   </div>
@@ -146,7 +140,7 @@ export function HomePage({
               <div class="flex flex-wrap gap-2 pt-1">
                 {smpElements.map((name) => (
                   <span
-                    class="px-2.5 py-1 rounded-chip bg-paper border-2 border-ink text-[13px] font-bold text-ink"
+                    class="px-3 py-1.5 rounded-chip bg-paper border-2 border-ink text-[14px] font-bold text-ink"
                     safe
                   >
                     {name}
@@ -157,42 +151,42 @@ export function HomePage({
           </div>
         </section>
 
-        {/* Kenapa di Sini? */}
-        <section class="flex flex-col gap-3.5">
+        {/* Kenapa Belajar di Sini? */}
+        <section class="flex flex-col gap-4">
           <h2 class="label-section px-1">KENAPA BELAJAR DI SINI?</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card class="flex items-start gap-3.5">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card class="flex items-start gap-4 p-5">
               <Badge variant="orange" size="icon" icon="edit" />
               <div>
-                <h3 class="font-title font-bold text-[19px] text-ink leading-snug">
+                <h3 class="font-title font-bold text-[20px] text-ink leading-snug">
                   Pembahasan tiap soal
                 </h3>
-                <p class="text-[15px] text-ink-soft mt-1 leading-relaxed">
-                  Langkah demi langkah ditulis rapi, biar kamu benar-benar paham konsepnya, bukan cuma hafal rumus.
+                <p class="text-[15px] sm:text-[16px] text-ink-soft mt-1.5 leading-relaxed">
+                  Langkah demi langkah, biar kamu paham, bukan cuma hafal.
                 </p>
               </div>
             </Card>
 
-            <Card class="flex items-start gap-3.5">
+            <Card class="flex items-start gap-4 p-5">
               <Badge variant="blue" size="icon" icon="youtube" />
               <div>
-                <h3 class="font-title font-bold text-[19px] text-ink leading-snug">
+                <h3 class="font-title font-bold text-[20px] text-ink leading-snug">
                   Video penjelasan YouTube
                 </h3>
-                <p class="text-[15px] text-ink-soft mt-1 leading-relaxed">
-                  Tersedia tombol ke video pendek Shorts maupun menit konsep video panjang oleh Kak Riyadi.
+                <p class="text-[15px] sm:text-[16px] text-ink-soft mt-1.5 leading-relaxed">
+                  Konsep dan trik cepat dijelasin langsung, bisa ditonton ulang kapan aja.
                 </p>
               </div>
             </Card>
 
-            <Card class="flex items-start gap-3.5">
+            <Card class="flex items-start gap-4 p-5">
               <Badge variant="purple" size="icon" icon="clock" />
               <div>
-                <h3 class="font-title font-bold text-[19px] text-ink leading-snug">
+                <h3 class="font-title font-bold text-[20px] text-ink leading-snug">
                   Tryout dengan timer
                 </h3>
-                <p class="text-[15px] text-ink-soft mt-1 leading-relaxed">
-                  Biasakan mengatur waktu pengerjaan 3 bentuk soal persis seperti ujian TKA sesungguhnya.
+                <p class="text-[15px] sm:text-[16px] text-ink-soft mt-1.5 leading-relaxed">
+                  Latihan ngatur waktu kayak ujian beneran.
                 </p>
               </div>
             </Card>
@@ -200,14 +194,14 @@ export function HomePage({
         </section>
 
         {/* Kartu Ajakan YouTube */}
-        <Card variant="soft" padding="lg" class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div class="flex flex-col gap-1">
-            <span class="label-section">BELAJAR BARENG KAK RIYADI</span>
-            <h3 class="font-title font-bold text-[22px] text-ink">
-              Tonton pembahasan santai di YouTube Riyadi Ofisharu
+        <Card variant="soft" padding="lg" class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-6 sm:p-8">
+          <div class="flex flex-col gap-1.5">
+            <span class="label-section">BELAJAR BARENG YUK NGELES</span>
+            <h3 class="font-title font-bold text-[22px] sm:text-[24px] text-ink">
+              Belajar bareng Yuk Ngeles (@yukngeles)
             </h3>
-            <p class="text-[16px] text-ink-soft">
-              Kebuka langsung di aplikasi YouTube HP kamu, hemat kuota dan gampang diulang kapan saja.
+            <p class="text-[16px] sm:text-[17px] text-ink-soft">
+              Video materi dan pembahasan soal TKA Matematika.
             </p>
           </div>
           <Button
@@ -218,7 +212,7 @@ export function HomePage({
             iconRight="external-link"
             class="shrink-0"
           >
-            Buka YouTube
+            Channel YouTube
           </Button>
         </Card>
       </div>

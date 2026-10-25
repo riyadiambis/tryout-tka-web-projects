@@ -71,8 +71,8 @@ export function TopicDetailPage({
             >
               Tonton Materi di YouTube
             </Button>
-            <p class="text-[13px] font-bold text-ink-soft text-center">
-              Kebuka di tab baru atau langsung di aplikasi YouTube oleh Kak Riyadi
+            <p class="text-[14px] font-bold text-ink-soft text-center">
+              Kebuka di tab baru atau langsung di aplikasi YouTube.
             </p>
           </div>
         ) : null}

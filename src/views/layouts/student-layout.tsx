@@ -55,6 +55,7 @@ export function StudentLayout({
           backHref={backHref}
           user={user}
           rightSlot={rightSlot}
+          containerWidthClass={widthClass}
         />
 
         {demoBanner ? (
@@ -71,18 +72,18 @@ export function StudentLayout({
 
         {!hideFooter ? (
           <footer class="w-full border-t-2 border-ink bg-paper-soft mt-auto">
-            <div class="mx-auto w-full max-w-mobile md:max-w-beranda px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[14px] text-ink-soft font-semibold text-center sm:text-left">
-              <p>Yuk Ngeles - Teman Belajar Matematika SD dan SMP</p>
+            <div class={`mx-auto w-full ${widthClass} px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[14px] text-ink-soft font-semibold text-center sm:text-left`}>
+              <p>Yuk Ngeles, teman belajar Matematika SD dan SMP</p>
               <div class="flex items-center gap-4">
                 <a href="/sd" class="hover:text-ink underline-offset-4 hover:underline">SD Kelas 6</a>
                 <a href="/smp" class="hover:text-ink underline-offset-4 hover:underline">SMP Kelas 9</a>
                 <a
-                  href="https://www.youtube.com/@RiyadiOfisharu"
+                  href="https://www.youtube.com/@yukngeles"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="hover:text-ink underline-offset-4 hover:underline"
                 >
-                  YouTube Kak Riyadi
+                  Channel YouTube
                 </a>
               </div>
             </div>

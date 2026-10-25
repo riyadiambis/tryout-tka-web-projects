@@ -64,7 +64,7 @@ export function AdminLoginPage({ error, username = '' }: AdminLoginPageProps = {
                 name="username"
                 type="text"
                 value={username}
-                placeholder="Contoh: riyadi_admin"
+                placeholder="Contoh: admin"
                 required
               />
 

@@ -32,7 +32,7 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(wrongLevel.status).toBe(404);
   });
 
-  test('1. Beranda (/): menampilkan SD Kelas 6 & SMP Kelas 9 aktif, bebas em dash, Tryout Akbar & Tryout Rutin', async () => {
+  test('1. Beranda (/): menampilkan SD Kelas 6 & SMP Kelas 9 aktif, tag elemen dinamis, bebas Aljabar/Peluang di SD, bebas em dash, Tryout Akbar & Tryout Rutin', async () => {
     const res = await app.handle(new Request('http://localhost/'));
     const html = await res.text();
 
@@ -42,6 +42,44 @@ describe('Milestone 2: Halaman Siswa Lengkap (Data Dummy Server)', async () => {
     expect(html).toContain('href="/smp"');
     expect(html).toContain('href="/masuk"');
     expect(html).toContain('href="/daftar"');
+    expect(html).toContain('/img/maskot-hero.png');
+
+    // Teks brand dan anti-overclaim
+    expect(html).not.toContain('Sesuai kisi-kisi resmi TKA');
+    expect(html).toContain('Gratis Latihan & Pembahasan');
+    expect(html).toContain('Latihan soal gratis dan pembahasan lengkap untuk TKA Matematika SD dan SMP.');
+    expect(html).toContain('Langkah demi langkah, biar kamu paham, bukan cuma hafal.');
+    expect(html).toContain('Konsep dan trik cepat dijelasin langsung, bisa ditonton ulang kapan aja.');
+    expect(html).toContain('Latihan ngatur waktu kayak ujian beneran.');
+    expect(html).toContain('Belajar bareng Yuk Ngeles (@yukngeles)');
+    expect(html).toContain('Video materi dan pembahasan soal TKA Matematika.');
+    expect(html).toContain('Yuk Ngeles, teman belajar Matematika SD dan SMP');
+    expect(html).not.toContain('Kak Riyadi');
+    expect(html).not.toContain('Riyadi Ofisharu');
+
+    // Tag Elemen Kartu Jenjang Dinamis (Aturan Poin 4)
+    const pilihJenjangIdx = html.indexOf('id="pilih-jenjang"');
+    expect(pilihJenjangIdx).toBeGreaterThan(0);
+    const pilihJenjangHtml = html.slice(pilihJenjangIdx);
+
+    const sdCardMatch = pilihJenjangHtml.match(/href="\/sd"[\s\S]*?href="\/smp"/);
+    expect(sdCardMatch).not.toBeNull();
+    const sdCardHtml = sdCardMatch![0];
+    expect(sdCardHtml).toContain('Bilangan');
+    expect(sdCardHtml).toContain('Geometri dan Pengukuran');
+    expect(sdCardHtml).toContain('Data');
+    expect(sdCardHtml).not.toContain('Aljabar');
+    expect(sdCardHtml).not.toContain('Peluang');
+
+    // Kartu SMP memuat Aljabar dan Data dan Peluang
+    const smpCardMatch = pilihJenjangHtml.match(/href="\/smp"[\s\S]*?<\/section>/);
+    expect(smpCardMatch).not.toBeNull();
+    const smpCardHtml = smpCardMatch![0];
+    expect(smpCardHtml).toContain('Bilangan');
+    expect(smpCardHtml).toContain('Aljabar');
+    expect(smpCardHtml).toContain('Geometri dan Pengukuran');
+    expect(smpCardHtml).toContain('Data dan Peluang');
+
     expect(html).not.toContain('Tryout Akbar');
     expect(html).not.toContain('Tryout Rutin');
     expect(html).not.toContain('/admin');

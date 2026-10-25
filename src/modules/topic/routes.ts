@@ -12,6 +12,8 @@ import { HomePage } from './views/home-page';
 import { LevelDashboardPage } from './views/level-dashboard-page';
 import { TopicDetailPage } from './views/topic-detail-page';
 
+import { SITE_CONFIG } from '../../config/site';
+
 export function createTopicRoutes(isDevMode: boolean) {
   return new Elysia({ name: 'topic-routes' })
     .get('/', ({ query, set }) => {
@@ -21,7 +23,7 @@ export function createTopicRoutes(isDevMode: boolean) {
         user,
         sdElements: getElementsByLevel('sd').map((e) => e.name),
         smpElements: getElementsByLevel('smp').map((e) => e.name),
-        youtubeChannelUrl: 'https://www.youtube.com/@RiyadiOfisharu',
+        youtubeChannelUrl: SITE_CONFIG.youtube.url,
       });
     })
     .get('/:level', ({ params, query, set }) => {

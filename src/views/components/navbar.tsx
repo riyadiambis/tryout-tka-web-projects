@@ -10,6 +10,7 @@ export interface NavbarProps {
   backHref?: string;
   user?: SessionStudentUser | null;
   rightSlot?: JSX.Element;
+  containerWidthClass?: string;
 }
 
 export function Navbar({
@@ -19,13 +20,15 @@ export function Navbar({
   backHref,
   user = null,
   rightSlot,
+  containerWidthClass,
 }: NavbarProps): JSX.Element {
   const containerWidth =
-    variant === 'home'
+    containerWidthClass ??
+    (variant === 'home'
       ? 'max-w-mobile md:max-w-beranda'
       : variant === 'exam'
         ? 'max-w-mobile lg:max-w-cbt'
-        : 'max-w-mobile md:max-w-beranda';
+        : 'max-w-mobile md:max-w-desktop');
 
   return (
     <header class="sticky top-0 z-40 w-full bg-paper/95 backdrop-blur-sm border-b-2 border-ink">
