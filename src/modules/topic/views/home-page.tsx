@@ -60,7 +60,7 @@ export function HomePage({
               <div class="md:col-span-5 flex flex-col items-center justify-center relative mt-4 md:mt-0">
                 <div class="relative inline-block border-[2.5px] border-ink rounded-card shadow-solid -rotate-2 bg-paper-soft p-2 sm:p-2.5 mx-auto max-w-[260px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[390px]">
                   <img
-                    src="/img/maskot-hero.png"
+                    src="/img/maskot-hero.png?v=2"
                     alt="Maskot Yuk Ngeles belajar matematika"
                     class="w-full h-auto object-contain block rounded-badge"
                   />
